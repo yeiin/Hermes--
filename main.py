@@ -13,7 +13,7 @@ def main():
 		t2.start()
 		t3 = threading.Thread(target=camera)
 		t3.start()
-
+  
 		while True:
 			time.sleep(0.1)
 	

@@ -4,22 +4,21 @@ import pygame
 pygame.mixer.init()
 
 music = "a"
+
+if(music=="a"):
+    pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_a.mp3")
+else:
+   pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_b.mp3") 
  
-#load file
-pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_{music}.mp3")
- 
-#play
 pygame.mixer.music.play()
- 
-#끝까지 재생할때까지 기다린다.
+
 while pygame.mixer.music.get_busy() == True:
     continue
-    
-# #다음 파일 재생    
-# pygame.mixer.music.load("/home/poppy/poppy_audio/welcome.wav")
-# pygame.mixer.music.play()
-# while pygame.mixer.music.get_busy() == True:
-#     continue
-    
-# pygame.mixer.music.load("/home/poppy/poppy_audio/not_welcome.wav")
-# pygame.mixer.music.play()
+
+
+def changeMusic(newMusic):
+    global music
+    music = newMusic
+
+def endMusic():
+    pygame.mixer.music.stop()
