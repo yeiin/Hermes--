@@ -1,24 +1,46 @@
 import pygame
+import time
+import constant
  
-#init
-pygame.mixer.init()
+music = constant.DEFAULT_MUSIC
+end = False
 
-music = "a"
+def playMusic():
+    global end
+    global count
+    
+    pygame.mixer.init()
+    
+    if(music=="a"):
+        pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_a.mp3")
+    else:
+        pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_b.mp3") 
+    
+    pygame.mixer.music.play()
 
-if(music=="a"):
-    pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_a.mp3")
-else:
-   pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_b.mp3") 
- 
-pygame.mixer.music.play()
-
-while pygame.mixer.music.get_busy() == True:
-    continue
+    while pygame.mixer.music.get_busy() == True and end == False:
+        continue
 
 
 def changeMusic(newMusic):
+    global end
     global music
+    
+    end = True
     music = newMusic
+    end = False
+    
+    playMusic()
+
 
 def endMusic():
-    pygame.mixer.music.stop()
+    global end
+    end = True
+    
+    
+def main():
+    playMusic()
+
+
+if __name__ == "__main__":
+    main()
