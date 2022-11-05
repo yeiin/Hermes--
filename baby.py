@@ -1,4 +1,4 @@
-
 baby = None
 
-print(baby)
+#async def baby_stats():
+#   print(baby)

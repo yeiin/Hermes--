@@ -53,8 +53,7 @@ def mobile():
 def main():
     print(">>>>>>>>>>>>>>>>>>>>motor")
     baby.baby = constant.SLEEPTOWAKE
-    if(baby.baby == constant.SLEEPTOWAKE):
-        
+    if(baby.baby == constant.SLEEPTOWAKE): 
         mobile()
     
 

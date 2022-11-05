@@ -2,9 +2,11 @@ import pygame
  
 #init
 pygame.mixer.init()
+
+music = "a"
  
 #load file
-pygame.mixer.music.load("/home/pi/Documents/Hermes/2.mp3")
+pygame.mixer.music.load("/home/pi/Documents/Hermes/asset/music_{music}.mp3")
  
 #play
 pygame.mixer.music.play()
